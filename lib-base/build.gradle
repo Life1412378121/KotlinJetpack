@@ -79,4 +79,6 @@ dependencies {
     implementation LibsGitHub.EventBusAPT
 
     implementation LibsGitHub.UtilCodeX
+    implementation LibsGitHub.Immersionbar
+    implementation LibsGitHub.ImmersionbarFragment
 }

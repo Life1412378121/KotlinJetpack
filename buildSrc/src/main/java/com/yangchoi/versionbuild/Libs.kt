@@ -68,4 +68,6 @@ object LibsGitHub {
     const val PermissionX = "com.permissionx.guolindev:permissionx:${VersionGitHub.PermissionX}"
     const val LeakCanary = "com.squareup.leakcanary:leakcanary-android:${VersionGitHub.LeakCanary}"
     const val UtilCodeX = "com.blankj:utilcodex:${VersionGitHub.UtilCodeX}"
+    const val Immersionbar = "com.gyf.immersionbar:immersionbar:${VersionGitHub.Immersionbar}"
+    const val ImmersionbarFragment = "com.gyf.immersionbar:immersionbar-components:${VersionGitHub.Immersionbar}"
 }

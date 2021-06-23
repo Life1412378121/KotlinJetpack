@@ -5,12 +5,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home"
         android:textColor="#000000"
+        android:text="我是search"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:background="@color/design_default_color_primary"/>
 
 </LinearLayout>

@@ -62,4 +62,5 @@ object VersionGitHub{
     const val Chuck = "1.1.0"                           // OkHttp 请求信息拦截器(UI)
     const val UtilCodeX = "1.28.2"                      // AndroidX 工具类
     const val CookieX = "v1.0.1"                        // cookie
+    const val Immersionbar = "3.0.0"
 }

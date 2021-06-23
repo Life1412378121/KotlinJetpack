@@ -3,6 +3,7 @@ package com.yangchoi.lib_base.base
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
@@ -10,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.gyf.immersionbar.ImmersionBar
+import com.yangchoi.lib_base.R
 import com.yangchoi.lib_base.error.ErrorResult
 import com.yangchoi.lib_base.utils.EventCode
 import com.yangchoi.lib_base.utils.EventMessage
@@ -31,6 +34,7 @@ abstract class BaseActivity<VM: BaseViewModel,VB: ViewBinding> : AppCompatActivi
     //loading
     private var loadingDialog: ProgressDialog? = null
 
+    protected open fun isRegisterImmersionBar() = true
 
     abstract fun initView()
 
@@ -66,12 +70,28 @@ abstract class BaseActivity<VM: BaseViewModel,VB: ViewBinding> : AppCompatActivi
         setContentView(v.root)
 
         mContext = this
+
+        initImmersionBar()
+
         init()
         initView()
         initClick()
         initData()
         initVM()
-        LogUtils.e(getClassName());
+        LogUtils.e(getClassName())
+    }
+
+    private fun initImmersionBar(){
+        if (isRegisterImmersionBar()) {
+            ImmersionBar.with(this)
+                .transparentStatusBar()
+                .transparentNavigationBar()
+                .transparentBar()
+                .statusBarColor(R.color.statusBarDefaultColor)
+                .statusBarDarkFont(false)
+                .keyboardEnable(true, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+                .init()
+        }
     }
 
     private fun init() {
@@ -114,4 +134,8 @@ abstract class BaseActivity<VM: BaseViewModel,VB: ViewBinding> : AppCompatActivi
      * 接口请求错误回调
      */
     open fun errorResult(errorResult: ErrorResult) {}
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
