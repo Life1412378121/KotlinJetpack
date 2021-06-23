@@ -24,6 +24,8 @@ object LibsAndroidX{
     const val FragmentKtx = "androidx.fragment:fragment-ktx:${VersionAndroidX.FragmentKtx}"
     const val MultiDex = "androidx.multidex:multidex:${VersionAndroidX.MultiDex}"
     const val RecyclerView = "androidx.recyclerview:recyclerview:${VersionAndroidX.RecyclerView}"
+    const val NavigationUI = "androidx.navigation:navigation-ui-ktx:${VersionAndroidX.Navigation}"
+    const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${VersionAndroidX.Navigation}"
 }
 
 object LibsJetpack{

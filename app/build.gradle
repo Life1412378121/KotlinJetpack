@@ -1,6 +1,7 @@
 import com.yangchoi.versionbuild.AndroidConfig
 import com.yangchoi.versionbuild.LibsAndroid
 import com.yangchoi.versionbuild.LibsAndroidX
+import com.yangchoi.versionbuild.LibsGitHub
 import com.yangchoi.versionbuild.LibsGoogle
 import com.yangchoi.versionbuild.LibsKotlin
 
@@ -61,17 +62,39 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packagingOptions {
+        exclude 'META-INF/*'
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        exclude 'META-INF/INDEX.LIST' // will not include INDEX.LIST file
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation LibsKotlin.Kotlin
-    implementation LibsAndroidX.CoreKtx
     implementation LibsAndroidX.AppCompat
+    implementation LibsAndroidX.CoreKtx
     implementation LibsGoogle.GoogleMaterial
     implementation LibsAndroidX.ConstraintLayout
+    implementation LibsAndroidX.NavigationUI
+    implementation LibsAndroidX.NavigationFragment
     testImplementation LibsAndroid.Junit
     androidTestImplementation LibsAndroidX.TestExtJunit
     androidTestImplementation LibsAndroidX.TestEspresso
+
+    if (!singleModule.toBoolean()){
+        implementation project(path: ':lib-base')
+        implementation project(path: ':lib-network')
+        implementation project(path: ':module-home')
+        implementation project(path: ':module-project')
+        implementation project(path: ':module-mine')
+    }
+
+    implementation LibsGitHub.ARoute
+    implementation LibsGitHub.ARouteCompiler
+
 }

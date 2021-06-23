@@ -14,7 +14,7 @@ object VersionAndroid{
 }
 
 object VersionAndroidX {
-    const val AppCompat = "1.3.0-alpha01"
+    const val AppCompat = "1.2.0"
     const val CoreKtx = "1.3.1"
     const val ConstraintLayout = "2.0.0-beta8"
     const val TestExtJunit = "1.1.2"
@@ -23,6 +23,7 @@ object VersionAndroidX {
     const val FragmentKtx = "1.2.5"
     const val MultiDex = "2.0.1"
     const val RecyclerView = "1.1.0"
+    const val Navigation = "2.3.5"
 }
 
 object VersionJetpack{

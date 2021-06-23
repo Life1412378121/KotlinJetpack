@@ -5,11 +5,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
     }
     dependencies {
         classpath GradleConfig.AndroidToolsPlugin
         classpath GradleConfig.KotlinPlugin
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

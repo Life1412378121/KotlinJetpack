@@ -2,3 +2,6 @@ rootProject.name = "KotlinJetpack"
 include ':app'
 include ':lib-network'
 include ':lib-base'
+include ':module-home'
+include ':module-project'
+include ':module-mine'
