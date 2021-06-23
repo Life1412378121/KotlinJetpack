@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_mine"
-    app:startDestination="@id/idfragment_mine">
+    app:startDestination="@id/fragment_mine">
 
     <fragment
-        android:id="@+id/idfragment_mine"
+        android:id="@+id/fragment_mine"
         android:name="com.yangchoi.module_mine.ui.fragment.MineFragment"
         tools:layout="@layout/fragment_mine"/>
 

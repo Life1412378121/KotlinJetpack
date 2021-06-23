@@ -36,6 +36,7 @@ fun BottomNavigationView.setupWithNavController(
     // First create a NavHostFragment for each NavGraph ID
     navGraphIds.forEachIndexed { index, navGraphId ->
         val fragmentTag = getFragmentTag(index)
+        Log.e("fragmentTag","$index   $fragmentTag")
 
         // Find or create the Navigation host fragment
         val navHostFragment = obtainNavHostFragment(
@@ -84,6 +85,7 @@ fun BottomNavigationView.setupWithNavController(
                 // Pop everything above the first fragment (the "fixed start destination")
                 fragmentManager.popBackStack(firstFragmentTag,
                     FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                Log.e("newlySelectedItemTag",newlySelectedItemTag)
                 val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag)
                         as NavHostFragment
 

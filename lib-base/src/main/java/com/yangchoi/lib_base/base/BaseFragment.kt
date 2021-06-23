@@ -80,7 +80,8 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     }
 
     private fun init() {
-        EventBus.getDefault().register(this)
+        if (!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this)
         //loading
         vm.isShowLoading.observe(viewLifecycleOwner, Observer {
             if (it) showLoading() else dismissLoding()
@@ -94,7 +95,8 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        EventBus.getDefault().unregister(this)
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this)
     }
 
     //事件传递

@@ -36,19 +36,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             containerId = R.id.nav_host_container,
             intent = intent
         )
-//        controller.observe(this, Observer { navController ->
-//            //setupActionBarWithNavController(navController)
-//            navController.addOnDestinationChangedListener { _, destination, _ ->
-//                run {
-////                    val id = destination.id
-////                    if (id == R.id.projectContentFragment) {
-////                        v.navView.visibility = View.GONE
-////                    } else {
-////                        v.navView.visibility = View.VISIBLE
-////                    }
-//                }
-//            }
-//        })
         currentNavController = controller
     }
 
