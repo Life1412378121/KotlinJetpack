@@ -56,7 +56,7 @@ class LoggingInterceptor : Interceptor {
                     "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
                 )
             ) else showHttpApiLog(
-                java.lang.String.format(
+                String.format(
                     "%s%n%s%n%s%n%s%n%s%n",
                     "请求URL>>$httpUrl",
                     "API>>$api",
@@ -77,33 +77,34 @@ class LoggingInterceptor : Interceptor {
             )
         }
 
-        if (result.length > 4000) {
-            val chunkCount = result.length / 4000 // integer division
-            for (i in 0..chunkCount) {
-                val max = 4000 * (i + 1)
-                if (max >= result.length) {
-                    showHttpLog(
-                        String.format(
-                            "%s%n%s%n%s%n",
-                            "请求结果>>>" + result.substring(4000 * i),
-                            " ",
-                            " "
-                        )
-                    )
-                } else {
-                    showHttpLog(
-                        String.format(
-                            "%s%n%s%n%s%n",
-                            "请求结果>>>" + result.substring(4000 * i, max),
-                            " ",
-                            " "
-                        )
-                    )
-                }
-            }
-        } else {
-            showHttpLog(String.format("%s%n%s%n%s%n", "请求结果>>>$result", " ", ""))
-        }
+//        if (result.length > 4000) {
+//            val chunkCount = result.length / 4000 // integer division
+//            for (i in 0..chunkCount) {
+//                val max = 4000 * (i + 1)
+//                if (max >= result.length) {
+//                    showHttpLog(
+//                        String.format(
+//                            "%s%n%s%n%s%n",
+//                            "请求结果>>>" + result,//.substring(4000 * i)
+//                            " ",
+//                            " "
+//                        )
+//                    )
+//                } else {
+//                    showHttpLog(
+//                        String.format(
+//                            "%s%n%s%n%s%n",
+//                            "请求结果>>>" + result,//.substring(4000 * i, max)
+//                            " ",
+//                            " "
+//                        )
+//                    )
+//                }
+//            }
+//        } else {
+//            showHttpLog(String.format("%s%n%s%n%s%n", "请求结果>>>$result", " ", ""))
+//        }
+        showHttpLog(String.format("%s%n%s%n%s%n", "请求结果>>>$result", " ", ""))
         return response
     }
 

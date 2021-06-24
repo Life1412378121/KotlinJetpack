@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.yangchoi.lib_base.error.ErrorResult
 import com.yangchoi.lib_base.utils.ErrorUtil
@@ -45,10 +46,9 @@ open class BaseViewModel : ViewModel() {
      * 请求接口，可定制是否显示loading和错误提示
      */
     fun <T> launch(
-        //请求接口方法，T表示data实体泛型，调用时可将data对应的bean传入即可
-        block:suspend  CoroutineScope.() -> BaseResult<T>,
-        liveData: MutableLiveData<T>,
-        isShowLoading: Boolean = false,
+        block:suspend  CoroutineScope.() -> BaseResult<T>,//请求接口方法，
+        liveData: MutableLiveData<T>,//T表示data实体泛型，调用时可将data对应的bean传入即可
+        isShowLoading: Boolean = false,//是否显示加载框
         isShowError: Boolean = true
     ){
         if (isShowLoading) showLoading()
@@ -56,13 +56,14 @@ open class BaseViewModel : ViewModel() {
             try {
                 val result = withContext(Dispatchers.IO) { block() }
                 if (result.errorCode == 0) {//请求成功
+                    Log.e("requestTAG","请求成功>>" + GsonUtils.toJson(result.data))
                     liveData.value = result.data
                 } else {
-                    LogUtils.e("请求错误>>" + result.errorMsg)
+                    Log.e("requestTAG","请求错误>>" + result.errorMsg)
                     showError(ErrorResult(result.errorCode, result.errorMsg, isShowError))
                 }
             } catch (e: Throwable) {//接口请求失败
-                LogUtils.e("请求异常>>" + e.message)
+                Log.e("requestTAG","请求异常>>" + e.message)
                 val errorResult = ErrorUtil.getError(e)
                 errorResult.show = isShowError
                 showError(errorResult)

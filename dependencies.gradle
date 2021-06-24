@@ -4,6 +4,7 @@ import com.yangchoi.versionbuild.LibsAndroid
 import com.yangchoi.versionbuild.LibsAndroidX
 import com.yangchoi.versionbuild.LibsGoogle
 import com.yangchoi.versionbuild.LibsKotlin
+import com.yangchoi.versionbuild.LibsGitHub
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -63,4 +64,6 @@ dependencies {
 
     implementation project(path: ':lib-base')
     implementation project(path: ':lib-network')
+
+    implementation LibsGitHub.UtilCodeX
 }
