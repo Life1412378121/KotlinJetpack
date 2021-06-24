@@ -1,10 +1,7 @@
 package com.yangchoi.module_tab.ui.fragment
 
-import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.GsonUtils
 import com.yangchoi.lib_base.base.BaseFragment
 import com.yangchoi.lib_network.entity.ArticleBean
 import com.yangchoi.lib_network.entity.ArticleListBean
@@ -12,7 +9,6 @@ import com.yangchoi.lib_network.entity.BannerEntity
 import com.yangchoi.module_tab.adapter.HomeArticleAdapter
 import com.yangchoi.module_tab.adapter.HomeBannerAdapter
 import com.yangchoi.module_tab.databinding.FragmentHomeBinding
-import com.yangchoi.module_tab.ui.activity.SearchActivity
 import com.yangchoi.module_tab.viewmodel.HomeFragmentVM
 import com.youth.banner.indicator.CircleIndicator
 

@@ -1,7 +1,7 @@
 
-### 一个用Kotlin Jetpack并采用MVVM架构的项目
+## 一个用Kotlin Jetpack并采用MVVM架构的项目
 
-#### 主要技术要点
+### 主要技术要点
     JetPack官方地址:   [https://developer.android.google.cn/jetpack]
     
     1.kotlin         [https://www.kotlincn.net/]
@@ -12,13 +12,13 @@
     6.Navigation
 
 
-#### Navigation
+### Navigation
     1. 导入navigation组件库
-        const val NavigationUI = "androidx.navigation:navigation-ui-ktx:${VersionAndroidX.Navigation}"
-        const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${VersionAndroidX.Navigation}"
+        `const val NavigationUI = "androidx.navigation:navigation-ui-ktx:${VersionAndroidX.Navigation}"
+        const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${VersionAndroidX.Navigation}"`
         
     2.layout文件夹下创建menu文件
-        <?xml version="1.0" encoding="utf-8"?>
+        `<?xml version="1.0" encoding="utf-8"?>
         <menu xmlns:android="http://schemas.android.com/apk/res/android">
             <item
                     android:id="@+id/navigation_home" //这个id是重点  重点，一定要和跳转的目的地的文件名称一样，不然会出现找不到位置的情况
@@ -32,11 +32,11 @@
                     android:id="@+id/navigation_mine"
                     android:icon="@mipmap/ic_launcher"
                     android:title="我的"/>
-        </menu>
+        </menu>`
     
     3.layout文件夹下创建navgation文件
     
-        android:id="@+id/navigation_home"  //注意这里  这个id对应的menu里面的id
+        `android:id="@+id/navigation_home"  //注意这里  这个id对应的menu里面的id
     
         <?xml version="1.0" encoding="utf-8"?>
         <navigation xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,7 +48,7 @@
                 android:id="@+id/fragment_home" //id
                 android:name="com.yangchoi.module_tab.ui.fragment.HomeFragment" // 目标fragment 或者 activity
                 tools:layout="@layout/fragment_home"/> //目标fragment 或者  activity布局
-        </navigation>
+        </navigation>`
         
     4.绑定BottomNavigationView
         private var currentNavController:LiveData<NavController>? = null
@@ -68,7 +68,7 @@
             return currentNavController?.value?.navigateUp() ?: false
         }
         
-#### network
+### network
     网络请求通过协程和retorfit实现，接口访问步骤如下：
     
     1.ViewModel编写接收数据的数据源
@@ -89,10 +89,10 @@
         private var bannerList:MutableList<BannerEntity>? = null
         vm.bannerData.observe(this, Observer {bannerList = it})
         
-#### buildSrc
+### buildSrc
     采用Kotlin DLS的形式管理gradle版本信息、Android版本信息、第三方库版本信息
     
-##### 创建buildSrc文件
+### 创建buildSrc文件
      1.在根目录new-file创建一个lib文件夹,名字一定要是buildSrc这个名字
      2.编译的时候出现'buildSrc' cannot be used as a project name as it is a reserved name错误
        解决办法：删除掉setting.gradle文件里面的include buildSrc部分，重新编译
@@ -108,13 +108,11 @@
      7.在包名下创建Version.kt文件管理第三方库版本
      8.在包名下创建Libs.kt文件管理依赖加载
      
-##### 引入第三方类库
+### 引入第三方类库
     1.在Version.kt文件里面添加版本号
-        ```
         object VersionAndroid{
             const val Junit = "4.+"
         }
-        ```
     
     2.在Libs.kt文件里面完善引入路径
         object LibsAndroid {
@@ -124,3 +122,14 @@
     3.在对应的gradle文件使用
         testImplementation LibsAndroid.Junit
         
+### 扩展至BaseActivity、BaseFragment、BaseAdapter
+    * 扩展至Activity和Fragment都一直，直接继承BaseActiviy或者BaseFragment
+    * 传入参数一: 对应的ViewModel  参数二:对应的布局
+    * 布局的传入方式直接就是布局名称驼峰后面加上Binding,
+        比如MainActivity对应布局是activity_main.xml那么对应的viewbinding就是ActivityMainBinding
+    * 要想使用viewbinding必须在该module的gradle文件添加支持
+    `buildFeatures {
+             viewBinding = true
+         }`
+    `class HomeFragment : BaseFragment<HomeFragmentVM, FragmentHomeBinding>()
+     class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()`
