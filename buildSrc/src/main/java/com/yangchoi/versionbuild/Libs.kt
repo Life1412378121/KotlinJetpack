@@ -33,6 +33,8 @@ object LibsJetpack{
     const val LifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${VersionJetpack.LifecycleRuntimeKtx}"
     const val LifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${VersionJetpack.LifecycleViewModelKtx}"
     const val LifecycleX = "androidx.lifecycle:lifecycle-extensions:${VersionJetpack.LifecycleX}"
+    const val RoomRunTime = "androidx.room:room-runtime:${VersionJetpack.RoomVersion}"
+    const val RoomCompiler = "androidx.room:room-compiler:${VersionJetpack.RoomVersion}"
 }
 
 object LibsDagger{

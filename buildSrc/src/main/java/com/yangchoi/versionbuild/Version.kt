@@ -31,6 +31,7 @@ object VersionJetpack{
     const val LifecycleRuntimeKtx = "2.2.0"
     const val LifecycleViewModelKtx = "2.2.0"
     const val LifecycleX = "2.2.0"
+    const val RoomVersion = "2.2.6"
 }
 
 object VersionKotlin{
