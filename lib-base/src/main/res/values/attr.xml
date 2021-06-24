@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName" >
+    <!-- 自定义标题栏 -->
+    <declare-styleable name="BaseToolbar">
+        <attr name="showLeftIcon" format="boolean"/>
+        <attr name="showTitleText" format="boolean"/>
+        <attr name="showRightIcon" format="boolean"/>
+        <attr name="setTitleText" format="string"/>
+    </declare-styleable>
+    <!-- 自定义设置条状栏-->
+    <declare-styleable name="BaseSetting">
+        <attr name="settingLeftIcon" format="reference"/>
+        <attr name="settingRightText" format="string"/>
+        <attr name="settingShowRightText" format="boolean"/>
+        <attr name="settingShowRightIcon" format="boolean"/>
+        <attr name="menuText" format="string"/>
+    </declare-styleable>
+    <!-- 圆角图片 -->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+</resources>

@@ -122,14 +122,25 @@
     3.在对应的gradle文件使用
         testImplementation LibsAndroid.Junit
         
-### 扩展至BaseActivity、BaseFragment、BaseAdapter
+### 扩展至BaseActivity、BaseFragment
     * 扩展至Activity和Fragment都一直，直接继承BaseActiviy或者BaseFragment
     * 传入参数一: 对应的ViewModel  参数二:对应的布局
     * 布局的传入方式直接就是布局名称驼峰后面加上Binding,
         比如MainActivity对应布局是activity_main.xml那么对应的viewbinding就是ActivityMainBinding
     * 要想使用viewbinding必须在该module的gradle文件添加支持
-    `buildFeatures {
+    buildFeatures {
              viewBinding = true
-         }`
-    `class HomeFragment : BaseFragment<HomeFragmentVM, FragmentHomeBinding>()
-     class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()`
+         }
+    class HomeFragment : BaseFragment<HomeFragmentVM, FragmentHomeBinding>()
+    class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
+    
+### 扩展至BaseAdapter
+    class HomeArticleAdapter(context:Activity,listData:MutableList<ArticleBean>)
+        : BaseAdapter<ItemHomeArticleBinding,ArticleBean>(context,listData as ArrayList<ArticleBean>)
+        
+    参数解析:
+    1.context:Activity 只能是Activity的上下文
+    2.listData:MutableList<ArticleBean> 数据源  BaseAdapter接收的是ArrayList形式的，所以要进行转换
+    3.ItemHomeArticleBinding 注入布局，和上面的activity、fragment一致
+    4.ArticleBean 数据类型
+    

@@ -30,6 +30,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         val navGraphIds =
             listOf(R.navigation.navi_home, R.navigation.navi_project, R.navigation.navi_mine)
 
+        v.navView.itemIconTintList = null
+
         val controller = v.navView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
