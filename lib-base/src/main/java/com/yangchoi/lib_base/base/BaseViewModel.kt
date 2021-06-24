@@ -56,7 +56,7 @@ open class BaseViewModel : ViewModel() {
             try {
                 val result = withContext(Dispatchers.IO) { block() }
                 if (result.errorCode == 0) {//请求成功
-                    Log.e("requestTAG","请求成功>>" + GsonUtils.toJson(result.data))
+//                    Log.e("requestTAG","请求成功>>" + GsonUtils.toJson(result.data))
                     liveData.value = result.data
                 } else {
                     Log.e("requestTAG","请求错误>>" + result.errorMsg)

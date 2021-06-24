@@ -6,6 +6,7 @@ buildscript {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
     dependencies {
         classpath GradleConfig.AndroidToolsPlugin
@@ -20,6 +21,7 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://www.jitpack.io' }
     }
 }
 

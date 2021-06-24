@@ -70,4 +70,5 @@ object LibsGitHub {
     const val UtilCodeX = "com.blankj:utilcodex:${VersionGitHub.UtilCodeX}"
     const val Immersionbar = "com.gyf.immersionbar:immersionbar:${VersionGitHub.Immersionbar}"
     const val ImmersionbarFragment = "com.gyf.immersionbar:immersionbar-components:${VersionGitHub.Immersionbar}"
+    const val Bannerviewpager = "io.github.youth5201314:banner:${VersionGitHub.Bannerviewpager}"
 }

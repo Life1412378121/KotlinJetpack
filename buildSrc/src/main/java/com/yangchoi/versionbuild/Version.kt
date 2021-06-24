@@ -63,4 +63,5 @@ object VersionGitHub{
     const val UtilCodeX = "1.28.2"                      // AndroidX 工具类
     const val CookieX = "v1.0.1"                        // cookie
     const val Immersionbar = "3.0.0"                    //沉浸式状态栏
+    const val Bannerviewpager = "2.2.1"                 //轮播图
 }
