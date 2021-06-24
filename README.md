@@ -110,9 +110,11 @@
      
 ##### 引入第三方类库
     1.在Version.kt文件里面添加版本号
+        ```
         object VersionAndroid{
             const val Junit = "4.+"
         }
+        ```
     
     2.在Libs.kt文件里面完善引入路径
         object LibsAndroid {
