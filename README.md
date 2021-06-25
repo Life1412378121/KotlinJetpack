@@ -1,4 +1,3 @@
-
 ## 一个用Kotlin Jetpack并采用MVVM架构的项目
 
 ### 主要技术要点
@@ -10,6 +9,14 @@
     4.RxJava         [https://github.com/ReactiveX/RxJava]
     5.Retrofit       [https://square.github.io/retrofit/]
     6.Navigation
+    
+### 模块说明
+    lib-base            MVVM配置的一些基类
+    lib-network         协程+retorfit封装的网络模块
+    lib-pubresource     公共资源的存放
+    module-home         首页模块
+    module-project      项目模块
+    module-mine         个人中心模块 
 
 
 ### Navigation

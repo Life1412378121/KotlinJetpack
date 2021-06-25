@@ -64,6 +64,7 @@ dependencies {
 
     implementation project(path: ':lib-base')
     implementation project(path: ':lib-network')
+    implementation project(path: ':lib-pubresource')
 
     implementation LibsGitHub.UtilCodeX
 }
