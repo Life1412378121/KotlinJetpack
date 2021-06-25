@@ -1,5 +1,6 @@
 package com.yangchoi.module_tab.ui.activity
 
+import androidx.lifecycle.Observer
 import com.yangchoi.lib_base.base.BaseActivity
 import com.yangchoi.module_tab.databinding.ActivitySearchBinding
 import com.yangchoi.module_tab.viewmodel.SearchActivityVM
@@ -10,6 +11,7 @@ import com.yangchoi.module_tab.viewmodel.SearchActivityVM
  */
 class SearchActivity : BaseActivity<SearchActivityVM, ActivitySearchBinding>() {
     override fun initView() {
+        vm.getHotKeyList()
     }
 
     override fun initClick() {
@@ -19,5 +21,8 @@ class SearchActivity : BaseActivity<SearchActivityVM, ActivitySearchBinding>() {
     }
 
     override fun initVM() {
+        vm.hotKeyList.observe(this, Observer {
+
+        })
     }
 }

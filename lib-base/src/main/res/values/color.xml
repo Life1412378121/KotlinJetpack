@@ -5,4 +5,9 @@
     <color name="toolbar_color">#FFFFFF</color>
 
     <color name="toolbar_text">#000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue2">#1296db</color>
+    <color name="search">#c9c9c9</color>
 </resources>
