@@ -81,4 +81,5 @@ dependencies {
     implementation LibsGitHub.UtilCodeX
     implementation LibsGitHub.Immersionbar
     implementation LibsGitHub.ImmersionbarFragment
+    implementation LibsGitHub.MMKV
 }

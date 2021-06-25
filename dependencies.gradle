@@ -21,7 +21,6 @@ android {
         versionName AndroidConfig.versionName
 
         testInstrumentationRunner LibsAndroidX.AndroidJUnitRunner
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -64,7 +63,8 @@ dependencies {
 
     implementation project(path: ':lib-base')
     implementation project(path: ':lib-network')
-    implementation project(path: ':lib-pubresource')
+    implementation project(path: ':lib-public')
 
     implementation LibsGitHub.UtilCodeX
+    implementation LibsGitHub.MMKV
 }

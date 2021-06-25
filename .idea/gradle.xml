@@ -15,7 +15,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/lib-base" />
             <option value="$PROJECT_DIR$/lib-network" />
-            <option value="$PROJECT_DIR$/lib-pubresource" />
+            <option value="$PROJECT_DIR$/lib-public" />
             <option value="$PROJECT_DIR$/module-home" />
             <option value="$PROJECT_DIR$/module-mine" />
             <option value="$PROJECT_DIR$/module-project" />

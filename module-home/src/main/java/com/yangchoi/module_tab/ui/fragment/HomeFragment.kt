@@ -8,6 +8,8 @@ import com.yangchoi.lib_base.base.BaseFragment
 import com.yangchoi.lib_network.entity.ArticleBean
 import com.yangchoi.lib_network.entity.ArticleListBean
 import com.yangchoi.lib_network.entity.BannerEntity
+import com.yangchoi.lib_public.MMKVDataTypeMenu
+import com.yangchoi.lib_public.MMKVUtil
 import com.yangchoi.module_tab.R
 import com.yangchoi.module_tab.adapter.HomeArticleAdapter
 import com.yangchoi.module_tab.adapter.HomeBannerAdapter
@@ -54,6 +56,9 @@ class HomeFragment : BaseFragment<HomeFragmentVM, FragmentHomeBinding>(),View.On
      * 获取接口数据
      * */
     override fun initView() {
+
+        MMKVUtil.saveValue(MMKVDataTypeMenu.INT.toString(),"testString","1111")
+
         vm.getArticListData(page,true)
         vm.getBannerList()
     }
