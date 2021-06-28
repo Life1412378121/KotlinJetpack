@@ -1,4 +1,5 @@
 import com.yangchoi.versionbuild.LibsGitHub
+import com.yangchoi.versionbuild.LibsJetpack
 import com.yangchoi.versionbuild.LibsKotlin
 
 plugins {
@@ -46,4 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':lib-base')
     implementation LibsGitHub.MMKV
+    implementation LibsJetpack.RoomRunTime
+    implementation LibsJetpack.RoomCompiler
+
 }

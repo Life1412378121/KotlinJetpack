@@ -1,4 +1,4 @@
-package com.yangchoi.lib_public
+package com.yangchoi.lib_public.mmkv
 
 import com.tencent.mmkv.MMKV
 

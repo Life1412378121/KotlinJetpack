@@ -8,8 +8,8 @@ import com.yangchoi.lib_base.base.BaseFragment
 import com.yangchoi.lib_network.entity.ArticleBean
 import com.yangchoi.lib_network.entity.ArticleListBean
 import com.yangchoi.lib_network.entity.BannerEntity
-import com.yangchoi.lib_public.MMKVDataTypeMenu
-import com.yangchoi.lib_public.MMKVUtil
+import com.yangchoi.lib_public.mmkv.MMKVDataTypeMenu
+import com.yangchoi.lib_public.mmkv.MMKVUtil
 import com.yangchoi.module_tab.R
 import com.yangchoi.module_tab.adapter.HomeArticleAdapter
 import com.yangchoi.module_tab.adapter.HomeBannerAdapter

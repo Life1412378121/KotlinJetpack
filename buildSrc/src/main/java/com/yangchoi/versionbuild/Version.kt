@@ -5,10 +5,10 @@ package com.yangchoi.versionbuild
  * describe: 版本管理器
  */
 
-object VersionGoogle{
+object VersionGoogle {
     const val GoogleMaterial = "1.2.1"
     const val Flexbox = "2.0.1"//流式布局
-
+}
 object VersionAndroid{
     const val Junit = "4.+"
 }

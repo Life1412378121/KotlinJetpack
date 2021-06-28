@@ -1,4 +1,4 @@
-package com.yangchoi.lib_public
+package com.yangchoi.lib_public.mmkv
 
 /**
  * Created on 2021/6/25
