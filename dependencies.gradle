@@ -67,4 +67,5 @@ dependencies {
 
     implementation LibsGitHub.UtilCodeX
     implementation LibsGitHub.MMKV
+    implementation LibsGoogle.FlexBox
 }

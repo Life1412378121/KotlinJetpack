@@ -7,6 +7,7 @@ package com.yangchoi.versionbuild
 
 object LibsGoogle{
     const val GoogleMaterial = "com.google.android.material:material:${VersionGoogle.GoogleMaterial}"
+    const val FlexBox = "com.google.android:flexbox:${VersionGoogle.Flexbox}"
 }
 
 object LibsAndroid {
