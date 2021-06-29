@@ -1,17 +1,19 @@
 import com.yangchoi.versionbuild.LibsGitHub
+import com.yangchoi.versionbuild.LibsJetpack
 
 if (!singleModule.toBoolean()) {
     apply plugin: 'com.android.library'
 } else {
     apply plugin: 'com.android.application'
 }
-
 apply from:'../dependencies.gradle'
 
 dependencies{
     implementation LibsGitHub.Bannerviewpager
     implementation LibsGitHub.Glide
-
+    implementation LibsJetpack.RoomRunTime
+    kapt LibsJetpack.RoomCompiler
+    implementation LibsGitHub.Gson
 
 
 }

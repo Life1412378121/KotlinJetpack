@@ -50,7 +50,7 @@ class LoggingInterceptor : Interceptor {
                 String.format(
                     "%s%n%s%n%s%n%s%n%s%n",
                     "请求URL>>$httpUrl",
-                    "API>>$api",
+//                    "API>>$api",
                     "请求方法>>" + request.method(),
                     "请求参数>>" + request.body().toString(),
                     "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
@@ -59,7 +59,7 @@ class LoggingInterceptor : Interceptor {
                 String.format(
                     "%s%n%s%n%s%n%s%n%s%n",
                     "请求URL>>$httpUrl",
-                    "API>>$api",
+//                    "API>>$api",
                     "请求方法>>" + request.method(),
                     "请求参数>>" + URLDecoder.decode(bodyToString(request.body()), "UTF-8"),
                     "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
@@ -70,7 +70,7 @@ class LoggingInterceptor : Interceptor {
                 String.format(
                     "%s%n%s%n%s%n%s%n",
                     "请求URL>>$httpUrl",
-                    "API>>$api",
+//                    "API>>$api",
                     "请求方法>>" + request.method(),
                     "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
                 )

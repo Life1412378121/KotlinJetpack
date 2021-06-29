@@ -1,5 +1,4 @@
 import com.yangchoi.versionbuild.AndroidConfig
-import com.yangchoi.versionbuild.GradleConfig
 import com.yangchoi.versionbuild.LibsAndroid
 import com.yangchoi.versionbuild.LibsAndroidX
 import com.yangchoi.versionbuild.LibsGoogle

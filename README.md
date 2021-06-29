@@ -9,7 +9,8 @@
     4.RxJava         [https://github.com/ReactiveX/RxJava]
     5.Retrofit       [https://square.github.io/retrofit/]
     6.Navigation
-    
+    7.Room
+    8.MMKV    
 ### 模块说明
     lib-base            MVVM配置的一些基类
     lib-network         协程+retorfit封装的网络模块
@@ -95,6 +96,8 @@
     4.在fragment或者activity的initVM方法中给数据源赋值
         private var bannerList:MutableList<BannerEntity>? = null
         vm.bannerData.observe(this, Observer {bannerList = it})
+        
+### MMKV
         
 ### buildSrc
     采用Kotlin DLS的形式管理gradle版本信息、Android版本信息、第三方库版本信息
