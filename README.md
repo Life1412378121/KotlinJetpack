@@ -8,9 +8,9 @@
     3.databinding    [http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0811/3290.html]
     4.RxJava         [https://github.com/ReactiveX/RxJava]
     5.Retrofit       [https://square.github.io/retrofit/]
-    6.Navigation
-    7.Room
-    8.MMKV    
+    6.Navigation     [https://developer.android.google.cn/jetpack/androidx/releases/navigation]
+    7.Room           [https://developer.android.google.cn/jetpack/androidx/releases/room]
+    8.MMKV           [https://github.com/tencent/mmkv]
 ### 模块说明
     lib-base            MVVM配置的一些基类
     lib-network         协程+retorfit封装的网络模块
@@ -97,7 +97,130 @@
         private var bannerList:MutableList<BannerEntity>? = null
         vm.bannerData.observe(this, Observer {bannerList = it})
         
+### ROOM
+    Jetpack组件的数据库,基于SQlite的基础上提供了一个抽象层让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。
+    1.添加依赖
+        implementation LibsJetpack.RoomRunTime
+        kapt LibsJetpack.RoomCompiler
+        
+    2.创建表格实体
+        @Entity(tableName = "search_history",indices = [Index("user_id","is_delete")])
+        data class SearchHistoryEntity @JvmOverloads constructor(
+            //字段id
+            @ColumnInfo(name = "id")
+            @SerializedName("id")
+            @PrimaryKey(autoGenerate = false)
+            val id:String,
+        
+            //用户id
+            @ColumnInfo(name = "user_id")
+            @SerializedName("user_id")
+            val user_id:String,
+        
+            //是否删除
+            @ColumnInfo(name = "is_delete")
+            @SerializedName("is_delete")
+            var is_delete:Boolean = false,
+        
+            //搜索内容
+            @ColumnInfo(name = "content")
+            @SerializedName("content")
+            val content:String,
+        
+            //搜索时间
+            @ColumnInfo(name = "date_time")
+            @SerializedName("date_time")
+            val date_time:String
+        )   
+                 
+    3.创建DataBase
+        @Database(entities = [SearchHistoryEntity::class],exportSchema = false,version = 1)
+        abstract class SearchHistoryDataBase : RoomDatabase(){
+            abstract val dao:Dao
+        }
+        
+        @Volatile
+        private var dbInstance: SearchHistoryDataBase? = null
+        
+        val Context.db: SearchHistoryDataBase
+            get() {
+                if (dbInstance == null){
+                    synchronized(SearchHistoryDataBase::class) {
+                        if (dbInstance == null) {
+                            val ctx = BaseApplication.context
+                            dbInstance = Room
+                                .databaseBuilder(ctx, SearchHistoryDataBase::class.java, "search")
+                                .build()
+                        }
+                    }
+                }
+                return dbInstance!!
+            }   
+    4.创建增删改查操作
+        @Dao
+        interface Dao {
+        
+            @Insert(onConflict = OnConflictStrategy.REPLACE)
+            fun insert(searchHistoryEntity: SearchHistoryEntity): Long
+        
+            @Update
+            fun update(searchHistoryEntitys: List<SearchHistoryEntity>): Int
+        
+            @Delete
+            fun delete(deleteList: List<SearchHistoryEntity>)
+        
+            @Query("SELECT * FROM SEARCH_HISTORY WHERE user_id == :uid AND is_delete == :isdelete")
+            fun getSearchHistory(uid:String,isdelete:Boolean):List<SearchHistoryEntity>
+        }     
+            
 ### MMKV
+    微信团队本地数据管理,弃用SharedPreferences。
+        object MMKVUtil {
+            //获取kv实例
+            val kv = MMKV.defaultMMKV()
+        
+            /**
+             * @param dataType 保存数据的类型
+             * @param dataKey 保存数据的key
+             * @param dataValue 保存数据的value
+             * */
+            @JvmStatic
+            fun saveValue(dataType: String,dataKey:String,dataValue:String){
+                when(dataType){
+                    MMKVDataTypeMenu.BOOLEAN.toString() -> kv.encode(dataKey,dataValue.toBoolean())
+                    MMKVDataTypeMenu.INT.toString() -> kv.encode(dataKey,dataValue.toInt())
+                    MMKVDataTypeMenu.LONG.toString() -> kv.encode(dataKey,dataValue.toLong())
+                    MMKVDataTypeMenu.FLOAT.toString() -> kv.encode(dataKey,dataValue.toFloat())
+                    MMKVDataTypeMenu.DOUBLE.toString() -> kv.encode(dataKey,dataValue.toDouble())
+                    MMKVDataTypeMenu.STRING.toString() -> kv.encode(dataKey,dataValue)
+                    MMKVDataTypeMenu.ENTITY.toString() -> kv.encode(dataKey,dataValue)
+                }
+            }
+            /**
+             * @param dataType 数据类型
+             *        boolean 布尔类型
+             *        int     int
+             *        long    长整形
+             *        float   float
+             *        double  double
+             *        string  字符串
+             *        entity  实体类  将实体类转成json字符串再进行保存
+             * @param dataKey  保存的key
+             * */
+            fun getValue(dataType: String,dataKey:String):String{
+                return when(dataType){
+                    MMKVDataTypeMenu.BOOLEAN.toString() -> "${kv.decodeBool(dataKey)}"
+                    MMKVDataTypeMenu.INT.toString() -> "${kv.decodeInt(dataKey)}"
+                    MMKVDataTypeMenu.LONG.toString() -> "${kv.decodeLong(dataKey)}"
+                    MMKVDataTypeMenu.FLOAT.toString() -> "${kv.decodeFloat(dataKey)}"
+                    MMKVDataTypeMenu.DOUBLE.toString() -> "${kv.decodeDouble(dataKey)}"
+                    MMKVDataTypeMenu.STRING.toString() -> kv.decodeString(dataKey)
+                    MMKVDataTypeMenu.ENTITY.toString() -> kv.decodeString(dataKey)
+                    else -> ""
+                }
+            }
+        }    
+    
         
 ### buildSrc
     采用Kotlin DLS的形式管理gradle版本信息、Android版本信息、第三方库版本信息
