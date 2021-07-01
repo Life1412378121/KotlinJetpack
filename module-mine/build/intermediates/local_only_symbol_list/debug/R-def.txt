@@ -1,0 +1,6 @@
+R_DEF: Internal format may change without notice
+local
+id fragment_mine
+id navigation_mine
+layout fragment_mine
+navigation navi_mine

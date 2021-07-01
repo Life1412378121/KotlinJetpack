@@ -1,0 +1,4 @@
+com/yangchoi/module_mine/BuildConfig.java
+ com.yangchoi.module_mine.BuildConfig
+com/yangchoi/module_mine/databinding/FragmentMineBinding.java
+ com.yangchoi.module_mine.databinding.FragmentMineBinding

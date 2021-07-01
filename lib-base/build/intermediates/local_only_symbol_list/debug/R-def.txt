@@ -1,0 +1,40 @@
+R_DEF: Internal format may change without notice
+local
+attr? civ_border_color
+attr? civ_border_overlay
+attr? civ_border_width
+attr? civ_fill_color
+attr? menuText
+attr? setTitleText
+attr? settingLeftIcon
+attr? settingRightText
+attr? settingShowRightIcon
+attr? settingShowRightText
+attr? showLeftIcon
+attr? showRightIcon
+attr? showTitleText
+color black
+color blue2
+color search
+color statusBarDefaultColor
+color toolbar_color
+color toolbar_text
+color white
+drawable header
+drawable icon_back_left
+drawable icon_menu
+drawable icon_next
+id base_setting
+id base_toolbar
+id btnBack
+id imgRight
+id img_next
+id img_setting_icon
+id toolbar_title
+id tv_right
+id tv_setting
+layout base_setting
+layout base_toolbar
+styleable BaseSetting settingLeftIcon settingRightText settingShowRightText settingShowRightIcon menuText
+styleable BaseToolbar showLeftIcon showTitleText showRightIcon setTitleText
+styleable CircleImageView civ_border_width civ_border_color civ_border_overlay civ_fill_color

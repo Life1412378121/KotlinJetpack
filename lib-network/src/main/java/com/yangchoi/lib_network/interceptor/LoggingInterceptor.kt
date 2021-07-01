@@ -38,42 +38,42 @@ class LoggingInterceptor : Interceptor {
             api = api.substring(0, api.indexOf("?"))
         }
         val result = responseBody.string()
-        showHttpHeaderLog(
-            String.format(
-                "%n%s%n%s",
-                " ",
-                request.headers().toString()
-            )
+        showHttpHeaderLog("请求Headers>>${request.headers().toString()}"
+//            String.format(
+//                "%n%s%n%s",
+//                " ",
+//                request.headers().toString()
+//            )
         )
         if (request.method() == "POST" || request.method() == "PUT") {
-            if (api.contains("UpLoadFile")) showHttpApiLog(
-                String.format(
-                    "%s%n%s%n%s%n%s%n%s%n",
-                    "请求URL>>$httpUrl",
-//                    "API>>$api",
-                    "请求方法>>" + request.method(),
-                    "请求参数>>" + request.body().toString(),
-                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
-                )
-            ) else showHttpApiLog(
-                String.format(
-                    "%s%n%s%n%s%n%s%n%s%n",
-                    "请求URL>>$httpUrl",
-//                    "API>>$api",
-                    "请求方法>>" + request.method(),
-                    "请求参数>>" + URLDecoder.decode(bodyToString(request.body()), "UTF-8"),
-                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
-                )
+            if (api.contains("UpLoadFile")) showHttpApiLog("请求URL>>$httpUrl"
+//                String.format(
+//                    "%s%n%s%n%s%n%s%n%s%n",
+//                    "请求URL>>$httpUrl",
+////                    "API>>$api",
+//                    "请求方法>>" + request.method(),
+//                    "请求参数>>" + request.body().toString(),
+//                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
+//                )
+            ) else showHttpApiLog("请求URL>>$httpUrl"
+//                String.format(
+//                    "%s%n%s%n%s%n%s%n%s%n",
+//                    "请求URL>>$httpUrl",
+////                    "API>>$api",
+//                    "请求方法>>" + request.method(),
+//                    "请求参数>>" + URLDecoder.decode(bodyToString(request.body()), "UTF-8"),
+//                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
+//                )
             )
         } else {
-            showHttpApiLog(
-                String.format(
-                    "%s%n%s%n%s%n%s%n",
-                    "请求URL>>$httpUrl",
-//                    "API>>$api",
-                    "请求方法>>" + request.method(),
-                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
-                )
+            showHttpApiLog("请求URL>>$httpUrl"
+//                String.format(
+//                    "%s%n%s%n%s%n%s%n",
+//                    "请求URL>>$httpUrl",
+////                    "API>>$api",
+//                    "请求方法>>" + request.method(),
+//                    "请求耗时>>" + String.format("%.1f", (t2 - t1) / 1e6) + "ms"
+//                )
             )
         }
 

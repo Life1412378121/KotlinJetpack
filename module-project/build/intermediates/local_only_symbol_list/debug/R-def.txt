@@ -1,0 +1,6 @@
+R_DEF: Internal format may change without notice
+local
+id fragment_project
+id navigation_project
+layout fragment_project
+navigation navi_project

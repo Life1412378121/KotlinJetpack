@@ -1,0 +1,26 @@
+R_DEF: Internal format may change without notice
+local
+id banner_image
+id btn_delete
+id btn_search
+id edit_search
+id fbl_knowledge
+id fragment_home
+id history_rv
+id home_article_list
+id home_banner
+id hot_key_rv
+id img_icon
+id item_author
+id item_name
+id item_time
+id navigation_home
+id tv_knowledge_item_name
+layout activity_search
+layout fragment_home
+layout item_history
+layout item_home_article
+layout item_home_banner
+layout item_hot_key
+layout item_knowledge_text
+navigation navi_home

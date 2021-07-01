@@ -1,0 +1,4 @@
+com/yangchoi/module_project/BuildConfig.java
+ com.yangchoi.module_project.BuildConfig
+com/yangchoi/module_project/databinding/FragmentProjectBinding.java
+ com.yangchoi.module_project.databinding.FragmentProjectBinding

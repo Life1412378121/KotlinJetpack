@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="blue2">#1296db</color>
+    <color name="search">#c9c9c9</color>
+    <color name="statusBarDefaultColor">#33000000</color>
+    <color name="toolbar_color">#FFFFFF</color>
+    <color name="toolbar_text">#000000</color>
+    <color name="white">#ffffff</color>
+    <declare-styleable name="BaseSetting">
+        <attr format="reference" name="settingLeftIcon"/>
+        <attr format="string" name="settingRightText"/>
+        <attr format="boolean" name="settingShowRightText"/>
+        <attr format="boolean" name="settingShowRightIcon"/>
+        <attr format="string" name="menuText"/>
+    </declare-styleable>
+    <declare-styleable name="BaseToolbar">
+        <attr format="boolean" name="showLeftIcon"/>
+        <attr format="boolean" name="showTitleText"/>
+        <attr format="boolean" name="showRightIcon"/>
+        <attr format="string" name="setTitleText"/>
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_fill_color"/>
+    </declare-styleable>
+</resources>
